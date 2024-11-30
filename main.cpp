@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
             for (const int &t : vtxs[i].to[int(v - '0')])
             {
                 crt_id.push_back(t);
-                log += "q" + to_string(i) + "," + v + "," + "q" + to_string(t) + "," + vtxs[i].lambda + "\n";
+                log += "q" + to_string(i) + "," + v + "," + "q" + to_string(t) + "," + vtxs[t].lambda + "\n";
             }
 
             // もし遷移先がなかったら、-で埋める
@@ -70,6 +70,7 @@ int main(int argc, char *argv[])
     fs::create_directories("tables");
     ofstream file("tables/" + input + "_table.csv"); // 遷移表
     file << log << endl;
+    cout << log << endl;
 
     // 最後に到達したnodeのlambdaを取得し、受理したかどうかを出力
     for (const int &i : crt_id)
