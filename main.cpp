@@ -62,7 +62,12 @@ int main()
     (n文字目の遷移作の頂点番号)
     */
 
-    read_graph_data("sample.txt");
+    vector<Vertex> vtxs = read_graph_data("sample.txt");
+
+    for (int i = 0; i < vtxs.size(); i++)
+    {
+        cout << vtxs[i].to_str() << endl;
+    }
 
     return 0;
 }
