@@ -80,5 +80,6 @@ int main(int argc, char *argv[])
     fs::create_directories("tables");
     ofstream file("tables/" + input + "_" + (is_accepted ? "Accepted!!" : "Rejected!!") + "_table.csv"); // 遷移表
     file << log << endl;
+    file << ",,," << (is_accepted ? "Accepted!!" : "Rejected!!") << "," << endl;
     cout << log << endl;
 }
