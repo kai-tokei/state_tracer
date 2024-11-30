@@ -19,6 +19,11 @@ struct Vertex
         to.resize(t);
     }
 
+    string get_lambda()
+    {
+        return lambda;
+    }
+
     // dot言語化
     string to_str()
     {
