@@ -30,6 +30,7 @@ vector<Vertex> read_graph_data(string path)
     for (int i = 0; i < N; i++)
     {
         vtxs[i].id = i;
+        vtxs[i].sigma = sigma;
     }
 
     // pathを登録
@@ -48,20 +49,18 @@ vector<Vertex> read_graph_data(string path)
         }
     }
 
+    // 出力を登録
+    for (int i = 0; i < N; i++)
+    {
+        getline(file, line);
+        vtxs[i].lambda = line;
+    }
+
     return vtxs;
 }
 
 int main()
 {
-    /*
-    How to input graph data.
-    N(int) 頂点の数
-    sigma(str)
-    (sigmaの文字の長さだけ繰り返す)
-    (1文字目の遷移先の頂点番号)
-    (n文字目の遷移作の頂点番号)
-    */
-
     vector<Vertex> vtxs = read_graph_data("sample.txt");
 
     for (int i = 0; i < vtxs.size(); i++)

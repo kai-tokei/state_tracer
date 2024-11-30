@@ -9,6 +9,8 @@ using namespace std;
 struct Vertex
 {
     int id;
+    string lambda;
+    string sigma;
     vector<vector<int>> to;
 
     Vertex(int i, int t)
@@ -17,6 +19,7 @@ struct Vertex
         to.resize(t);
     }
 
+    // dot言語化
     string to_str()
     {
         string out;
