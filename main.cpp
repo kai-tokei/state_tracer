@@ -64,24 +64,21 @@ int main(int argc, char *argv[])
                 log += "q" + to_string(i) + "," + v + "," + "-,-" + "\n";
             }
         }
+        log += ",,,,\n";
     }
 
-    // 遷移表を書き出し
-    fs::create_directories("tables");
-    ofstream file("tables/" + input + "_table.csv"); // 遷移表
-    file << log << endl;
-    cout << log << endl;
+    bool is_accepted = false;
 
     // 最後に到達したnodeのlambdaを取得し、受理したかどうかを出力
     for (const int &i : crt_id)
     {
-        if (vtxs[i].lambda == accepted_lambda)
-        {
-            cout << "Accepted!!" << endl;
-            return 0;
-        }
+        is_accepted |= vtxs[i].lambda == accepted_lambda;
     }
-    cout << "Rejected!!" << endl;
+    cout << (is_accepted ? "Accepted!!" : "Rejected!!");
 
-    return 0;
+    // 遷移表を書き出し
+    fs::create_directories("tables");
+    ofstream file("tables/" + input + "_" + (is_accepted ? "Accepted!!" : "Rejected!!") + "_table.csv"); // 遷移表
+    file << log << endl;
+    cout << log << endl;
 }
