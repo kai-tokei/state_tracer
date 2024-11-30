@@ -87,5 +87,5 @@ Temporary Items
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,c++,cmake
 
-tables/
+tables*/
 state_tracer
