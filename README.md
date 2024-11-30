@@ -1,6 +1,6 @@
-# StateTracer
+# state_tracer
 
-StateTracer**は、有限オートマトン（Finite Automaton）を解析するためのツールです。グラフデータを基に状態遷移を実行し、入力記号列の受容可否を判定します。また、状態遷移履歴をCSV形式で出力します。
+**state_tracer**は、有限オートマトン（Finite Automaton）を解析するためのツールです。グラフデータを基に状態遷移を実行し、入力記号列の受容可否を判定します。また、状態遷移履歴をCSV形式で出力します。
 
 ## 機能
 
@@ -74,13 +74,13 @@ make
 例1: デフォルトの受理条件`1`で入力記号列`1011`を解析
 
 ```bash
-./StateTracer 1011
+./state_tracer 1011
 ```
 
 例2: 受理条件を`0`に変更して解析
 
 ```bash
-./StateTracer 1011 0
+./state_tracer 1011 0
 ```
 
 ## 出力
