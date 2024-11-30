@@ -50,17 +50,16 @@ sigma (期待される記号列)
 ## 使用方法
 
 ### 1. プログラムのコンパイル
-以下のコマンドでコンパイルします：
 
 ```bash
-g++ -o StateTracer main.cpp vertex.cpp utils.cpp
+make
 ```
 
 ### 2. プログラムの実行
 以下のコマンドで実行します：
 
 ```bash
-./StateTracer <入力記号列> [受理条件]
+./state_tracer <入力記号列> [グラフデータのpath] [受理条件]
 ```
 
 - `<入力記号列>`: 入力する記号列（例: `1011`）
