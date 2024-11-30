@@ -1,0 +1,6 @@
+Q,sigma,delta,lambda,
+q0,1,q3,0
+q3,0,q2,0
+q2,1,q3,1
+q3,1,q0,0
+
