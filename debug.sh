@@ -7,6 +7,6 @@ cp sub_graph.txt ./build/sub_graph.txt
 cd build
 g++ ../main.cpp
 
-./a.out 000 1
+./a.out 000
 cat table.csv
 cd ..

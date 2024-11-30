@@ -7,6 +7,18 @@
 using namespace std;
 
 // グラフデータを読み込む -> vector<Vertex>
+/*
+N (頂点数)
+sigma (入力期待記号列)
+(1番目のsigma[0])
+(1番目のsigma[1])
+(1番目のsigma[1])
+(n番目のsigma[0])
+(n番目のsigma[1])
+(n番目のsigma[n])
+(1番目の頂点の出力記号)
+(n番目の頂点の出力記号)
+*/
 vector<Vertex> read_graph_data(string path)
 {
     fstream file(path);

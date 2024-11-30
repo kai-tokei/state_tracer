@@ -10,10 +10,17 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    if (argc < 3)
+    if (argc < 2)
     {
         cerr << "Error: Invalid Input!!" << endl;
         return 0;
+    }
+
+    string input = argv[1];       // 入力記号列
+    string accepted_lambda = "1"; // 受理条件の文字列
+    if (argc > 2)
+    {
+        accepted_lambda = argv[2];
     }
 
     // グラフデータを読み込み
@@ -26,9 +33,6 @@ int main(int argc, char *argv[])
 
     string log = "Q,sigma,delta,\n";   // 履歴
     vector<int> crt_id = {0}, prev_id; // nodeのid (分岐するから、vectorで管理)
-
-    string input = argv[1];           // 入力記号列
-    string accepted_lambda = argv[2]; // 受理条件の文字列
 
     cout << "input: " << input << endl;
     cout << "lambda: " << accepted_lambda << endl;
@@ -62,8 +66,6 @@ int main(int argc, char *argv[])
     // 最後に到達したnodeのlambdaを取得し、受理したかどうかを出力
     for (const int &i : crt_id)
     {
-        cout << i << endl;
-        cout << vtxs[i].lambda << endl;
         if (vtxs[i].lambda == accepted_lambda)
         {
             cout << "Accepted!!" << endl;
