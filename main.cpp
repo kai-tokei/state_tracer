@@ -32,17 +32,9 @@ int main(int argc, char *argv[])
 
     // グラフデータを読み込み
     vector<Vertex> vtxs = read_graph_data(graph_file_path);
-    cout << "vtxs length: " << vtxs.size() << endl;
-    for (int i = 0; i < vtxs.size(); i++)
-    {
-        cout << vtxs[i].to_str() << endl;
-    }
 
     string log = "Q,sigma,delta,lambda,\n"; // 履歴
     vector<int> crt_id = {0}, prev_id;      // nodeのid (分岐するから、vectorで管理)
-
-    cout << "input: " << input << endl;
-    cout << "lambda: " << accepted_lambda << endl;
 
     // 記号列をなぞる。遷移状況をcsv形式で記録する
     for (const char &v : input)
@@ -74,12 +66,11 @@ int main(int argc, char *argv[])
     {
         is_accepted |= vtxs[i].lambda == accepted_lambda;
     }
-    cout << (is_accepted ? "Accepted!!" : "Rejected!!");
+    cout << (is_accepted ? "Accepted!!" : "Rejected!!") << endl;
 
     // 遷移表を書き出し
     fs::create_directories("tables");
     ofstream file("tables/" + input + "_" + (is_accepted ? "Accepted!!" : "Rejected!!") + "_table.csv"); // 遷移表
     file << log << endl;
     file << ",,," << (is_accepted ? "Accepted!!" : "Rejected!!") << "," << endl;
-    cout << log << endl;
 }
