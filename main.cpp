@@ -10,6 +10,18 @@
 using namespace std;
 namespace fs = std::filesystem;
 
+// 入力記号列を元にfaをトレースし、受理されるかどうかを判定
+bool is_accepted(vector<Vertex> &vtxs, vector<int> &crt_id, string &accepted_lambda)
+{
+    bool is_accepted = false;
+    // 最後に到達したnodeのlambdaを取得し、受理したかどうかを出力
+    for (const int &i : crt_id)
+    {
+        is_accepted |= vtxs[i].lambda == accepted_lambda;
+    }
+    return is_accepted;
+}
+
 int main(int argc, char *argv[])
 {
     if (argc < 2)
@@ -59,14 +71,8 @@ int main(int argc, char *argv[])
         log += ",,,,\n";
     }
 
-    bool is_accepted = false;
-
     // 最後に到達したnodeのlambdaを取得し、受理したかどうかを出力
-    for (const int &i : crt_id)
-    {
-        is_accepted |= vtxs[i].lambda == accepted_lambda;
-    }
-    cout << (is_accepted ? "Accepted!!" : "Rejected!!") << endl;
+    cout << (is_accepted(vtxs, crt_id, accepted_lambda) ? "Accepted!!" : "Rejected!!") << endl;
 
     // 遷移表を書き出し
     fs::create_directories("tables");
